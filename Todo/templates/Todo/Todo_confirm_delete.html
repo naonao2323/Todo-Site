@@ -1,0 +1,28 @@
+{% extends 'base.html'%}
+{% block content %}
+<div class="delete_container">
+<h1>Todoの削除</h1>
+
+<table>
+<tr>
+    <th>Todo</th>
+    <td>{{object.todo}}</td>
+</tr>
+<tr>
+    <th>作成日時</th>
+    <td>{{object.created}}</td>
+</tr>
+<tr>
+    <th>更新日時</th>
+    <td>{{object.updated}}</td>
+</tr>
+</table>
+<form action="", method="POST">
+    {% csrf_token %}
+    <input type="submit", value="削除", class="inform_delete">
+</form>
+<div class="delete_back">
+<a href="{% url 'todo:list'%}">戻る</a>
+</div>
+</div>
+{% endblock %}
