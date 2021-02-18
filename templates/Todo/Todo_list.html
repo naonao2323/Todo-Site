@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+<head>
+</head>
+<body>
+{% block content %}
+<div class="header">
+<h1>Todoの一覧</h1>
+</div>
+<div>
+<table>
+<thead>
+    <tr>
+        <th scope="col">Todo</th>
+        <th scope="col">作成日時</th>
+        <th scope="col">更新日時</th>
+        <th scope="col">操作</th>
+    </tr>
+</thead>
+<tbody>
+{% for item in object_list %}
+    <tr>
+        <td>{{item.todo}}</td>
+        <td>{{item.created}}</td>
+        <td>{{item.updated}}</td>
+        <td>
+           <button class="update"> <a href="{% url 'todo:update' pk=item.id %}">更新する</a></button>
+           <button class="delete"><a href="{% url 'todo:delete' pk=item.id %}" >削除する</a></button>
+        </td>
+    </tr>
+{% endfor %}
+</tbody>
+</table>
+<button class="nav-buttton"><a href="{% url 'todo:create' %}">Todoを追加する</a></button>
+</div>
+{% endblock %}
+</block>
+
