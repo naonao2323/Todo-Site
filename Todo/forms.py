@@ -6,4 +6,13 @@ class TodoForm(forms.ModelForm):
     class Meta:
         model = Todo
         exclude = ('cretaed_at', 'updated_at')
-        widget=forms.Textarea
+
+        widgets = {
+            'todo': forms.TextInput(attrs={
+                'class': 'Todo_form',
+               
+            }),
+        }
+        labels = {
+            'todo':"",
+        }
